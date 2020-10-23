@@ -1,0 +1,95 @@
+@media print{
+
+    html{
+        --page-padding: 0px;
+        --heading-height: 140px;
+        --footing-height: 60px;
+        --side-width: 250px;
+        --bootstrap-row-margin: 15px;
+    }
+    
+    #printBg{
+        display: block;
+        position: fixed;
+        height: 100vh;
+    }
+
+    .side-content-bg{
+        position: fixed;
+        background-color: rgb(9, 57, 106);
+        height: 100%;
+        max-width: none;
+        background-repeat: repeat-y;
+    }
+
+    .cv-content-bg{
+        position: fixed;
+        background-color: rgb(12, 81, 146);
+        top: 0;
+        right: 0;
+        height: 100%;
+        background-repeat: repeat-y;
+        border-left: 1px solid rgb(9, 57, 106);
+
+    }
+
+    .heading{
+        border-bottom: 1px solid black;
+        position: fixed;
+        min-height: var(--heading-height);
+        top: calc(var(--page-padding));
+        left: calc(var(--page-padding) + var(--bootstrap-row-margin));
+        right: calc(var(--page-padding) + var(--bootstrap-row-margin));
+    }
+
+    .footing {
+        border-top: 1px solid black;
+        position: fixed;
+        bottom: var(--page-padding);
+        left: calc(var(--page-padding) + var(--bootstrap-row-margin));
+        right: calc(var(--page-padding) + var(--bootstrap-row-margin));
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+
+    .sideinfo{
+        background-color: transparent;
+    }
+
+    .cv-content{
+        position: relative;
+        top: calc(var(--page-padding) + var(--heading-height));
+        max-height: fit-content;
+        padding: 0;
+        margin: 0;
+        background-color: transparent;
+    }
+
+    .container-fluid{
+        padding: 0!important;
+    }
+
+    .a4{
+        max-width: inherit;
+        max-height: inherit;
+    }
+
+    .main-content{
+        overflow: visible;
+    }
+
+    .pagebreak { display: block; page-break-before: always; }
+
+    .timeline .entry::after {
+        left: -55.6px;
+        background: rgb(255, 255, 255);
+        border-radius: 50%;
+        height: 9px;
+        width: 9px;
+        content: "";
+        top: 5px;
+    }
+
+
+         
+}
