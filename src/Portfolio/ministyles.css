@@ -1,0 +1,25 @@
+.tech-pill{
+    font-size: .75em;
+    letter-spacing: .3em;
+    color:white;
+
+    background-color: #585858;
+    padding-left: 5px;
+    border-radius: 2em;
+    margin-right: .75em;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none; 
+     -khtml-user-select: none; 
+       -moz-user-select: none; 
+        -ms-user-select: none; 
+            user-select: none; 
+}
+
+.return-arrow{
+    z-index: 1000;
+}
+
+/* Util */
+.invisible{
+	opacity: 0%;
+}
