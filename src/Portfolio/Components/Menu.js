@@ -1,19 +1,22 @@
-import React, {useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
     BrowserRouter as Router,
     Switch,
     Route,
     Link
   } from "react-router-dom";
+import Tree from './Tree'
 
 function Menu(props){
     const {isOpen, toggleMenu} = props;
+    const [githubScriptList, setGithubScriptList] = useState(null);
     useEffect(() =>{
         if(isOpen){
             open()           
         } else {
             close()
         }
+        getGithubScripts();
     });
 
     function open() {
@@ -22,6 +25,23 @@ function Menu(props){
 
     function close() {
         document.body.classList.remove('is-menu-visible');
+    }
+
+    function getGithubScripts(){
+        const repo = "https://api.github.com/repos/ttzv/Scripts/contents"
+        fetch(repo).then(response => response.json())
+        .then(json => {
+            const data = json.filter(j => j.type==="dir").map(j => j.name)
+            const tree = buildTree(data);
+            setGithubScriptList(tree);
+        })
+    }
+
+    function buildTree(data){
+        if(!data) return null;
+        return data.map( element => (
+            <Link to={`/scripts/${element}`} onClick={toggleMenu}>{element}</Link>
+        ));
     }
 
     return(
@@ -33,7 +53,10 @@ function Menu(props){
                         <Link to="/" onClick={toggleMenu}>Projects</Link>
                     </li>
                     <li>
-                        <Link to="/scripts" onClick={toggleMenu}>Scripts</Link>
+                        <Tree header={<Link to="/scripts" 
+                            onClick={toggleMenu}> Scripts</Link>}>
+                            {githubScriptList}
+                        </Tree>
                     </li>
                     <li>
                         <Link to="/hobbies" onClick={toggleMenu}>Hobbies & interests</Link>

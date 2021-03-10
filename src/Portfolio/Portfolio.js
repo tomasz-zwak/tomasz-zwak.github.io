@@ -28,7 +28,7 @@ function Portfolio() {
                     <Route path="/" exact>
                         <Projects />
                     </Route>
-                    <Route path="/scripts">
+                    <Route path="/scripts/:scriptName?">
                         <Scripts />
                     </Route>
                     <Route path="/hobbies">
