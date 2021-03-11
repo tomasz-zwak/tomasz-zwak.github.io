@@ -10,19 +10,11 @@ import { getByText } from '@testing-library/react';
 function Scripts(props) {
     const [scripts, setScripts] = useState('');
     let { scriptName } = useParams();
-    
-    function getCode(){
-        let url = "https://raw.githubusercontent.com/ttzv-training-repos/item/master/app/assets/javascripts/logic/PasswordGenerator.js"
-        fetch(url).then(r => r.text())
-        .then(setScripts);
-    }
 
     useEffect(()=>{
-        if(scripts.length === 0){
-            getFiles(scriptName).then(response => response.json())
-            .then(setScripts)
-        }
-    },[])
+        getFiles(scriptName).then(response => response.json())
+        .then(setScripts)
+    },[scriptName])
 
     async function getFiles(gitFolder){
         return await fetch(`https://api.github.com/repos/ttzv/Scripts/contents/${gitFolder}`)
@@ -36,7 +28,7 @@ function Scripts(props) {
                 ))
             )
         } else {
-            return '';
+            return null;
         }
     }
 
@@ -106,7 +98,7 @@ function Code(props) {
                 }
             })
         }
-    },'')
+    },[downloadUrl])
 
     return(
         <SyntaxHighlighter language={language} showLineNumbers={true} style={tomorrowNight}>

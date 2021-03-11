@@ -5,7 +5,7 @@
                 {/* <!-- Nav --> */}
                 <nav>
                     <ul>
-                        <li><a href="#menu" onClick={props.toggleMenu}>Menu</a></li>
+                        <li><a id="menu-btn" onClick={props.toggleMenu}>Menu</a></li>
                     </ul>
                  </nav>
             </div>

@@ -5,8 +5,6 @@ function Tree(props){
     const [expanded, setExpanded] = useState(false);
     const { header, children} = props;
 
-
-
     function toggle(){
         if(expanded){
             setExpanded(false);
@@ -23,9 +21,9 @@ function Tree(props){
                 <div> {header} </div>
             </div>
             <div className={`tree-container${expandedClassTree}`}>
-                <ul>
+                <ol>
                     {children}
-                </ul>
+                </ol>
             </div>
         </div>
     )
