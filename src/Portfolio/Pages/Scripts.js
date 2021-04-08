@@ -9,47 +9,63 @@ import { getByText } from '@testing-library/react';
 
 
 function Scripts(props) {
-    const [scripts, setScripts] = useState([]);
+    const [scripts, setScripts] = useState();
+    const [description, setDescription] = useState("No readme");
     let { scriptName } = useParams();
 
-    useEffect(()=>{
-        getFiles(scriptName).then(response => response.json())
-        .then()
+    useEffect( () => {
+        getScripts().then(scriptData => {
+            const readme = scriptData.filter(script => script.name === "README.md")[0];
+            if(readme){
+                setDescription(readme.content);
+                scriptData.splice(scriptData.indexOf(readme), 1);
+            } else {
+                setDescription("No Readme")
+            }
+            setScripts(scriptData)});
     }, [scriptName])
 
-    async function getFiles(gitFolder){
-        return await fetch(`https://api.github.com/repos/ttzv/Scripts/contents/${gitFolder}`)
+    function getFiles(gitFolder){
+        return fetch(`https://api.github.com/repos/ttzv/Scripts/contents/${gitFolder}`).then(response => response.json());
     }
 
-    async function getContents(json){
-        return Promise.all(json.map(j => j.download_url));
+    function getCode(json){
+        return Promise.all(json.map(j => fetch(j.download_url)));
     }
 
-    function buildTabs(data){
-        if(data){
+    async function getScripts() {
+        const filesJson = await getFiles(scriptName);
+        const scriptResponse = await getCode(filesJson);
+        const scriptCode = await Promise.all(scriptResponse.map(response => response.text()));
+        return filesJson.map( (file, index) => {
+            return {name: file.name, content: scriptCode[index]}
+        });
+    }
+    
+    function buildTabs(){
+        if(scripts){
             return(
                 scripts.map(script => (
                     <Tab>{script.name}</Tab>
                 ))
-            )
-        } else {
-            return null;
+            );
         }
+        return null;
     }
 
-    function buildTabPanels(data){
-        if(data){
+    function buildTabPanels(){
+        if(scripts){
             return(
                 scripts.map(script => (
                     <TabPanel>
-                        <Code language={getExt(script.name)}
-                            downloadUrl={script.download_url}/>
+                        <SyntaxHighlighter language={getExt(script.name)} showLineNumbers={true} style={tomorrowNight}>
+                            {script.content}
+                        </SyntaxHighlighter>
                     </TabPanel>
                 ))
             )
-        } else {
-            return '';
         }
+        return null;
     }
 
     function getExt(fileName){
@@ -68,24 +84,22 @@ function Scripts(props) {
         }
     }
 
-    function getDescription(){
-        if(scripts){
-            let readme = scripts.find(script => script.name === "README.md");
-            return readme.download_url
-        }
-    }
     const title = (scriptName ? scriptName : "Scripts");
     return(
         <div id="main">
             <div className="inner">
                 <h1>{title}</h1>
-                {/* <p><MarkdownSection url={getDescription()} /></p> */}
+                <p>        
+                    <ReactMarkdown>
+                        {description}
+                    </ReactMarkdown>
+                </p>
                 <hr></hr>
                 <Tabs>
                     <TabList>
-                       {/* {buildTabs(scripts)} */}
+                       {buildTabs()}
                     </TabList>
-                    {/* {buildTabPanels(scripts)} */}
+                    {buildTabPanels()}
                 </Tabs>
                 
             </div>
@@ -93,49 +107,3 @@ function Scripts(props) {
     )
 }
 export default Scripts;
-
-function Code(props) {
-    const {language, downloadUrl} = props;
-    const [code, setCode] = useState('');
-
-    useEffect(() => {
-        if(downloadUrl){
-            fetch(downloadUrl).then(response =>{
-                if(response.ok){
-                    response.text()
-                    .then(setCode);
-                }
-            })
-        }
-    },[downloadUrl])
-
-    return(
-        <SyntaxHighlighter language={language} showLineNumbers={true} style={tomorrowNight}>
-            {code}
-        </SyntaxHighlighter>
-    )
-}
-
-function MarkdownSection(props){
-    const {url, content} = props;
-    const [markdown, setMarkdown] = useState('');
-
-    useEffect(() => {
-        if(url){
-            fetch(url).then(response =>{
-                if(response.ok){
-                    response.text()
-                    .then(setMarkdown);
-                }
-            })
-        } else {
-            setMarkdown(content);
-        }
-    },[url, content])
-
-    return(
-        <ReactMarkdown>
-            {markdown}
-        </ReactMarkdown>
-    )
-}

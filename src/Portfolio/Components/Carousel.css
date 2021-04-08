@@ -1,29 +1,38 @@
 .carousel-wrapper{
     position: relative;
-    height: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .carousel-wrapper .image{
     transition: transform 0.5s ease, opacity 0.5s ease;
     height: 30%;
+    display: flex;
+    justify-content: center;
 }
 
 .carousel-wrapper > .carousel-container{
     position: relative;
+    max-width: 90%;
 }
 
 .carousel-wrapper .image > img{
-    max-width: 100%;
+    max-width: 100%;  
 }
 
 .carousel-wrapper .controls{
-    visibility: hidden;
+    pointer-events: none;
     position: absolute;
     display: flex;
     justify-content: space-between;
     font-size: 3em;
-    top: 60%;
-    width: 100%;
+    width: 110%;
+}
+
+.carousel-wrapper .controls > *{
+    pointer-events: all;
 }
 
 body:not(.is-touch) .carousel-wrapper .image:hover{
@@ -113,7 +122,6 @@ body:not(.is-touch) .carousel-wrapper .image:hover{
     top: 15%;
     left: 15%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 1001;
@@ -145,12 +153,14 @@ body:not(.is-touch) .carousel-wrapper .image:hover{
     position: fixed;
     top: calc(50% - 2em);
 }
+
 .gallery > .g-container > .navigation *{
     position: fixed;
     font-size: 4em;
     width: auto;
     text-shadow: 0px 0px 10px #333333;
     color: #ffffff;
+    transition: transform 0.5s ease;
 }
 .gallery > .g-container > .navigation > :first-child{
     left: 5%;
@@ -159,16 +169,29 @@ body:not(.is-touch) .carousel-wrapper .image:hover{
     right: 5%;
 }
 
-@media screen and (max-width: 736px){
+.gallery > .g-container > .navigation > :first-child:hover,
+.gallery > .g-container > .navigation > :first-child:active{
+    transform: translateX(-5px);
+}
 
+.gallery > .g-container > .navigation > :last-child:hover,
+.gallery > .g-container > .navigation > :last-child:active{
+    transform: translateX(5px);
+}
+
+@media screen and (max-width: 768px) {
     .gallery > .g-container{
-        left: 0%;
-        width: 100%;
+        padding: 0;
+        width:100%;
+        left: 0;
+        padding: 5px;
+    }
+
+    .gallery > .g-container > img{
+        max-width: 100%;
     }
 
     .gallery > .g-container > .navigation{
         top: 80%;
     }
-    
-
 }
