@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./Tree.css";
-import { Link } from "react-router-dom";
 function Tree(props){
     const [expanded, setExpanded] = useState(false);
     const { header, children} = props;

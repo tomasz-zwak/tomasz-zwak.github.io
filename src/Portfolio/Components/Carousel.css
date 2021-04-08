@@ -14,9 +14,10 @@
 
 .carousel-wrapper .image > img{
     max-width: 100%;
-    
 }
+
 .carousel-wrapper .controls{
+    visibility: hidden;
     position: absolute;
     display: flex;
     justify-content: space-between;
@@ -108,13 +109,12 @@ body:not(.is-touch) .carousel-wrapper .image:hover{
 }
 
 .gallery > .g-container{
-    padding: 2em 0 0 2em;
     position: fixed;
     top: 15%;
     left: 15%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     z-index: 1001;
     width: 70%;
@@ -124,11 +124,11 @@ body:not(.is-touch) .carousel-wrapper .image:hover{
 .gallery > .g-container > img{
     -webkit-touch-callout: none;
     -webkit-user-select: none; 
-     -khtml-user-select: none; 
-       -moz-user-select: none; 
-        -ms-user-select: none; 
-            user-select: none; 
-    max-width: 70%;
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+    max-width: 100%;
 }
 
 .gallery > .g-container > a{
@@ -136,27 +136,39 @@ body:not(.is-touch) .carousel-wrapper .image:hover{
     text-align: start;
     color: #ffffff;
     text-shadow: 0px 0px 10px #333333;
-    position: absolute;
-    top: 0%;
-    left: 100%;
+    position: fixed;
+    top: 5%;
+    right: 5%;
 }
 
 .gallery > .g-container > .navigation{
-    position: absolute;
-    bottom: 0%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    position: fixed;
+    top: calc(50% - 2em);
 }
 .gallery > .g-container > .navigation *{
+    position: fixed;
     font-size: 4em;
     width: auto;
     text-shadow: 0px 0px 10px #333333;
     color: #ffffff;
 }
 .gallery > .g-container > .navigation > :first-child{
-    padding-right: 2em;
+    left: 5%;
 }
 .gallery > .g-container > .navigation > :last-child{
-    padding-left: 2em;
+    right: 5%;
+}
+
+@media screen and (max-width: 736px){
+
+    .gallery > .g-container{
+        left: 0%;
+        width: 100%;
+    }
+
+    .gallery > .g-container > .navigation{
+        top: 80%;
+    }
+    
+
 }

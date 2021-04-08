@@ -4,20 +4,25 @@ import { tomorrowNight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { useParams } from "react-router-dom";
+import ReactMarkdown from 'react-markdown'
 import { getByText } from '@testing-library/react';
 
 
 function Scripts(props) {
-    const [scripts, setScripts] = useState('');
+    const [scripts, setScripts] = useState([]);
     let { scriptName } = useParams();
 
     useEffect(()=>{
         getFiles(scriptName).then(response => response.json())
-        .then(setScripts)
-    },[scriptName])
+        .then()
+    }, [scriptName])
 
     async function getFiles(gitFolder){
         return await fetch(`https://api.github.com/repos/ttzv/Scripts/contents/${gitFolder}`)
+    }
+
+    async function getContents(json){
+        return Promise.all(json.map(j => j.download_url));
     }
 
     function buildTabs(data){
@@ -59,7 +64,14 @@ function Scripts(props) {
             case "js":
                 return "javascript";
             default:
-                break;
+                return null;
+        }
+    }
+
+    function getDescription(){
+        if(scripts){
+            let readme = scripts.find(script => script.name === "README.md");
+            return readme.download_url
         }
     }
     const title = (scriptName ? scriptName : "Scripts");
@@ -67,16 +79,13 @@ function Scripts(props) {
         <div id="main">
             <div className="inner">
                 <h1>{title}</h1>
-                <p>Collection of my scripts that consists mostly of batch and powershell scripts that I use in my day to day job as an IT technician. 
-                    <br></br>
-                    Most recent of my work uses Google Apps Script.
-                </p>
+                {/* <p><MarkdownSection url={getDescription()} /></p> */}
                 <hr></hr>
                 <Tabs>
                     <TabList>
-                       {buildTabs(scripts)}
+                       {/* {buildTabs(scripts)} */}
                     </TabList>
-                    {buildTabPanels(scripts)}
+                    {/* {buildTabPanels(scripts)} */}
                 </Tabs>
                 
             </div>
@@ -104,5 +113,29 @@ function Code(props) {
         <SyntaxHighlighter language={language} showLineNumbers={true} style={tomorrowNight}>
             {code}
         </SyntaxHighlighter>
+    )
+}
+
+function MarkdownSection(props){
+    const {url, content} = props;
+    const [markdown, setMarkdown] = useState('');
+
+    useEffect(() => {
+        if(url){
+            fetch(url).then(response =>{
+                if(response.ok){
+                    response.text()
+                    .then(setMarkdown);
+                }
+            })
+        } else {
+            setMarkdown(content);
+        }
+    },[url, content])
+
+    return(
+        <ReactMarkdown>
+            {markdown}
+        </ReactMarkdown>
     )
 }
