@@ -1,21 +1,21 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import Tree from './Tree'
 
-function Menu(props){
-    const {isOpen, toggleMenu} = props;
+function Menu(props) {
+    const { isOpen, toggleMenu } = props;
     const [githubScriptList, setGithubScriptList] = useState(null);
-    
-    useEffect(() =>{
-        if(isOpen){
-            open()           
+
+    useEffect(() => {
+        if (isOpen) {
+            open()
         } else {
             close()
         }
-        if(!githubScriptList){
+        if (!githubScriptList) {
             getGithubScripts();
         }
-    },[isOpen]);
+    }, [isOpen]);
 
     function open() {
         document.body.classList.add('is-menu-visible');
@@ -25,34 +25,33 @@ function Menu(props){
         document.body.classList.remove('is-menu-visible');
     }
 
-    function getGithubScripts(){
+    function getGithubScripts() {
         const repo = "https://api.github.com/repos/ttzv/Scripts/contents"
         fetch(repo).then(response => response.json())
-        .then(json => {
-            const data = json.filter(j => j.type==="dir").map(j => j.name)
-            setGithubScriptList(data);
-        })
+            .then(json => {
+                const data = json.filter(j => j.type === "dir").map(j => j.name)
+                setGithubScriptList(data);
+            })
     }
 
-    function buildTree(data){
-        if(!data) return null;
-        return data.map( element => (
+    function buildTree(data) {
+        if (!data) return null;
+        return data.map(element => (
             <li>
                 <Link to={`/scripts/${element}`} onClick={toggleMenu}>{element}</Link>
             </li>
         ));
     }
 
-    return(
+    return (
         <nav id="menu">
             <div className="inner">
-                <h2></h2>
                 <ul>
                     <li>
                         <Link to="/" onClick={toggleMenu}>Projects</Link>
                     </li>
                     <li>
-                        <Tree header={<Link to="/scripts" 
+                        <Tree header={<Link to="/scripts"
                             onClick={toggleMenu}> Scripts</Link>}>
                             {buildTree(githubScriptList)}
                         </Tree>
