@@ -16,12 +16,6 @@ export default function Projects(props) {
                 </header>
                     <ProjectContainer />               
             </div>
-            <div className="inner">
-                <header>
-                    <h1>My Scripts</h1>
-                    <p>Text</p>
-                </header>              
-            </div>
         </div>
     )
     

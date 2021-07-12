@@ -9,6 +9,7 @@ import {
     Route,
     Link
   } from "react-router-dom";
+import ParticleBackground from "./Components/ParticleBackground";
 
 function Portfolio() {
     const [isMenuOpen, openMenu] = useState(false);
@@ -20,22 +21,13 @@ function Portfolio() {
 
     return (
         <Router>
+            <ParticleBackground />
             <Menu isOpen={isMenuOpen} toggleMenu={toggleMenu} />
             <div id="wrapper">
                 {/* Menu button is located in Header */}
                 <Header toggleMenu={toggleMenu}/> 
-                <Switch>
-                    <Route path="/" exact>
-                        <Projects />
-                    </Route>
-                    <Route path="/scripts/:scriptName?">
-                        <Scripts />
-                    </Route>
-                    <Route path="/hobbies">
-                        <Hobbies />
-                    </Route>
-                </Switch>
-
+                <Projects />
+                <Scripts />
                 <Footer />
             </div>
 

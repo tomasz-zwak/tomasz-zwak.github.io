@@ -6,23 +6,30 @@ import 'react-tabs/style/react-tabs.css';
 import { useParams } from "react-router-dom";
 import ReactMarkdown from 'react-markdown'
 import { getByText } from '@testing-library/react';
+import useGithubScriptList from '../Components/useGithubScriptList';
 
 
 function Scripts(props) {
     const [scripts, setScripts] = useState();
     const [description, setDescription] = useState("No readme");
-    let { scriptName } = useParams();
+    const [scriptName, setScriptName] = useState(null);
+    const scriptList = useGithubScriptList();
+    useEffect( () => {
+        console.log(scriptList);
+    })
 
     useEffect( () => {
-        getScripts().then(scriptData => {
-            const readme = scriptData.filter(script => script.name === "README.md")[0];
-            if(readme){
-                setDescription(readme.content);
-                scriptData.splice(scriptData.indexOf(readme), 1);
-            } else {
-                setDescription("No Readme")
+        if(scriptName){
+            getScripts().then(scriptData => {
+                const readme = scriptData.filter(script => script.name === "README.md")[0];
+                if(readme){
+                    setDescription(readme.content);
+                    scriptData.splice(scriptData.indexOf(readme), 1);
+                } else {
+                    setDescription("No Readme")
+                }
+                setScripts(scriptData)});
             }
-            setScripts(scriptData)});
     }, [scriptName])
 
     function getFiles(gitFolder){
@@ -40,6 +47,17 @@ function Scripts(props) {
         return filesJson.map( (file, index) => {
             return {name: file.name, content: scriptCode[index]}
         });
+    }
+
+    function buildScriptList(data) {
+        if (!data) return null;
+        return data.map(element => (
+            <ul>
+                <li>
+                    <div onClick={() => setScriptName(element)}>{element}</div>
+                </li>
+            </ul>
+        ));
     }
     
     function buildTabs(){
@@ -88,7 +106,9 @@ function Scripts(props) {
     return(
         <div id="main">
             <div className="inner">
-                <h1>{title}</h1>
+                <h1>Scripts</h1>
+                {buildScriptList(scriptList)}
+                <p id="scriptTitle">{title}</p>
                 <p>        
                     <ReactMarkdown>
                         {description}

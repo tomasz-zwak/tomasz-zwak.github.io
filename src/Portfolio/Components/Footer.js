@@ -3,7 +3,7 @@ function Footer(props) {
         <footer id="footer">
         <div className="inner">
             <section>
-                <h2>Get in touch</h2>
+                <h2 class="neonTextFlicker">Get in touch</h2>
                 <form method="post" action="#">
                     <div className="fields">
                         <div className="field half">
@@ -22,7 +22,7 @@ function Footer(props) {
                 </form>
             </section>
             <section>
-                <h2>Follow</h2>
+                <h2 class="neonTextFlicker delay">Follow</h2>
                 <ul className="icons">
                     <li><a href="https://github.com/ttzv" className="icon brands style2 fa-github"><span className="label">Linkedin</span></a></li>
                     <li><a href="https://linkedin.com/in/tomasz-zwak/" className="icon brands style2 fa-linkedin"><span className="label">GitHub</span></a></li>

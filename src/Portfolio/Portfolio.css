@@ -118,7 +118,7 @@ input, select, textarea {
 /* Type */
 
 	body, input, select, textarea {
-		color: #585858;
+		color: #ffffff;
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
 		font-size: 16pt;
 		font-weight: 300;
@@ -153,7 +153,7 @@ input, select, textarea {
 
 		a:hover {
 			border-bottom-color: transparent;
-			color: #f2849e !important;
+			color: #ffffff !important;
 		}
 
 	strong, b {
@@ -279,13 +279,14 @@ input, select, textarea {
 		-webkit-overflow-scrolling: touch;
 		font-family: "Courier New", monospace;
 		font-size: 0.9em;
+		max-height: 50em;
+		overflow-x: auto;
 	}
 
 		pre code {
 			display: block;
 			line-height: 1.75;
 			padding: 1em 1.5em;
-			overflow-x: auto;
 		}
 
 	hr {
@@ -1839,14 +1840,14 @@ input, select, textarea {
 			-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 			transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 			background-color: transparent;
-			border: solid 1px #c9c9c9;
+			border: solid 1px #777777;
 			border-radius: 4px;
 			width: 2.65em;
 			height: 2.65em;
 			display: inline-block;
 			text-align: center;
 			line-height: 2.65em;
-			color: inherit;
+			color: #777777;
 		}
 
 			.icon.style2:before {
@@ -1854,8 +1855,8 @@ input, select, textarea {
 			}
 
 			.icon.style2:hover {
-				color: #f2849e;
-				border-color: #f2849e;
+				color: #ffffff;
+				border-color: #ffffff;
 			}
 
 			.icon.style2:active {
@@ -2168,8 +2169,8 @@ input, select, textarea {
 		input[type="tel"]:focus,
 		select:focus,
 		textarea:focus {
-			border-bottom-color: #f2849e;
-			box-shadow: inset 0 -1px 0 0 #f2849e;
+			border-bottom-color: #ffffff;
+			box-shadow: inset 0 -1px 0 0 #ffffff;
 		}
 
 	select {
@@ -2446,10 +2447,10 @@ input, select, textarea {
 		-webkit-appearance: none;
 		-ms-appearance: none;
 		appearance: none;
-		-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
 		background-color: transparent;
 		border-radius: 4px;
 		border: 0;
@@ -2492,8 +2493,8 @@ input, select, textarea {
 		input[type="button"]:hover,
 		button:hover,
 		.button:hover {
-			color: #f2849e !important;
-			box-shadow: inset 0 0 0 2px #f2849e;
+			color: #ffffff !important;
+			box-shadow: inset 0 0 0 2px #ffffff;
 		}
 
 		input[type="submit"]:active,
@@ -2526,8 +2527,9 @@ input, select, textarea {
 		button.primary,
 		.button.primary {
 			box-shadow: none;
-			background-color: #585858;
-			color: #ffffff !important;
+			background-color: #000000;
+			border: 1px solid #777777;
+			color: #777777;
 		}
 
 			input[type="submit"].primary:hover,
@@ -2535,7 +2537,8 @@ input, select, textarea {
 			input[type="button"].primary:hover,
 			button.primary:hover,
 			.button.primary:hover {
-				background-color: #f2849e;
+				color: #ffffff;
+				border-color: #ffffff;
 			}
 
 			input[type="submit"].primary:active,
@@ -2543,7 +2546,7 @@ input, select, textarea {
 			input[type="button"].primary:active,
 			button.primary:active,
 			.button.primary:active {
-				background-color: #ee5f81;
+				background-color: #353535;
 			}
 
 		input[type="submit"].disabled, input[type="submit"]:disabled,
@@ -3191,7 +3194,7 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 
 			#main {
-				padding: 0em 0 4em 0 ;
+				padding: 0em 0 4em 0;
 			}
 
 		}
@@ -3199,8 +3202,8 @@ input, select, textarea {
 /* Footer */
 
 	#footer {
-		padding: 5em 0 6em 0 ;
-		background-color: #f6f6f6;
+		padding: 1em 0 6em 0 ;
+
 	}
 
 		#footer > .inner {
@@ -3216,6 +3219,7 @@ input, select, textarea {
 			-webkit-flex-direction: row;
 			-ms-flex-direction: row;
 			flex-direction: row;
+			padding-top: 2.5em!important;
 		}
 
 			#footer > .inner > * > :last-child {
@@ -3354,6 +3358,14 @@ input, select, textarea {
 		padding: 0 2.5em;
 	}
 
+	#wrapper > #main > .inner, #footer > .inner{
+		padding: 0 2.5em 1.5em;
+		border-top: 1px solid rgb(116, 116, 116);
+		border-radius: 1em;
+		margin-bottom: 5em;
+		background-color: rgb(0 0 0 / 75%);
+	}
+
 		@media screen and (max-width: 736px) {
 
 			#wrapper > * > .inner {
@@ -3381,4 +3393,78 @@ input, select, textarea {
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
 	background: #555; 
+  }
+
+  /* Footer title flicker */
+
+  .neonTextFlicker {
+	animation: flicker 1.5s infinite alternate;
+	color: #fff;
+	--neonColor: rgb(38, 61, 138);
+  }
+
+  .neonTextPulsate {
+	animation: pulsate 2.5s infinite alternate;
+	color: #fff;
+	--neonColor: #f09;
+  }
+
+  .neonTextFlicker.delay{
+	  animation-delay: .5s;
+  }
+
+  @keyframes flicker {
+    
+	0%, 18%, 22%, 25%, 53%, 57%, 100% {
+  
+		text-shadow:
+		0 0 4px #fff,
+		0 0 11px #fff,
+		0 0 19px #fff,
+		0 0 40px var(--neonColor),
+		0 0 80px var(--neonColor),
+		0 0 90px var(--neonColor),
+		0 0 100px var(--neonColor),
+		0 0 150px var(--neonColor);
+	
+	}
+	
+	20%, 24%, 55% {        
+		text-shadow: none;
+	}    
+  }
+  
+  
+
+  @keyframes pulsate {
+	100% {
+	  /* Larger blur radius */
+	  text-shadow:
+		0 0 4px #fff,
+		0 0 11px #fff,
+		0 0 19px #fff,
+		0 0 40px var(--neonColor),
+		0 0 80px var(--neonColor),
+		0 0 90px var(--neonColor),
+		0 0 100px var(--neonColor),
+		0 0 150px var(--neonColor);
+	}
+   0% {
+	  /* A slightly smaller blur radius */
+	  text-shadow:
+		0 0 4px #fff,
+		0 0 10px #fff,
+		0 0 18px #fff,
+		0 0 38px var(--neonColor),
+		0 0 73px var(--neonColor),
+		0 0 80px var(--neonColor),
+		0 0 94px  var(--neonColor),
+		0 0 140px var(--neonColor);
+	}
+  }
+
+  #scriptTitle{
+	  font-size: 2em;
+	  text-align: center;
+	  margin-top: 1em;
   }
