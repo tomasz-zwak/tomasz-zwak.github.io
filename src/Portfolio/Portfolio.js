@@ -3,13 +3,9 @@ import './Portfolio.css';
 import './ministyles.css';
 import {Menu, Header, Footer} from "./Components"
 import {Projects, Scripts, Hobbies} from "./Pages"
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
 import ParticleBackground from "./Components/ParticleBackground";
+import {Link , animateScroll} from "react-scroll";
+import ButtonScrollTop from "./Components/ButtonScrollTop";
 
 function Portfolio() {
     const [isMenuOpen, openMenu] = useState(false);
@@ -20,19 +16,46 @@ function Portfolio() {
     }
 
     return (
-        <Router>
+        <div>
             <ParticleBackground />
+            <ButtonScrollTop />
             <Menu isOpen={isMenuOpen} toggleMenu={toggleMenu} />
             <div id="wrapper">
-                {/* Menu button is located in Header */}
                 <Header toggleMenu={toggleMenu}/> 
-                <Projects />
-                <Scripts />
+                <div id="main">
+                    <div className="inner" id="landing">
+                        <header>
+                            <h1>Hello</h1>
+                            <p></p>
+                        </header>   
+                        <div>
+                            <Link to="projects" className="button"
+                                smooth={true}
+                                offset={-20}
+                                duration={500}>Projects</Link>         
+                            <Link to="scripts" className="button"
+                                smooth={true}
+                                offset={-20}
+                                duration={500}>Scripts</Link>
+                        </div>
+                    </div>
+                    <div className="inner" id="projects">
+                        <header>
+                            <h1>My projects</h1>
+                            <p>Text</p>
+                        </header>
+                        <Projects />               
+                    </div>
+                    <div className="inner" id="scripts">
+                        <header>
+                            <h1>Scripts</h1>
+                        </header>
+                        <Scripts />
+                    </div>
+                </div>
                 <Footer />
             </div>
-
-            
-        </Router>
+        </div>
     );
 }
 export default Portfolio;

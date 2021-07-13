@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import ReactMarkdown from 'react-markdown'
 import { getByText } from '@testing-library/react';
 import useGithubScriptList from '../Components/useGithubScriptList';
+import {useSpring, animated} from 'react-spring';
 
 
 function Scripts(props) {
@@ -52,11 +53,7 @@ function Scripts(props) {
     function buildScriptList(data) {
         if (!data) return null;
         return data.map(element => (
-            <ul>
-                <li>
-                    <div onClick={() => setScriptName(element)}>{element}</div>
-                </li>
-            </ul>
+            <button className="scriptEntry" onClick={() => setScriptName(element)}>{element}</button>
         ));
     }
     
@@ -102,27 +99,33 @@ function Scripts(props) {
         }
     }
 
+    function scriptPreview(){
+        if(scriptName && description){
+            return(
+                <div>
+                    <p id="scriptTitle">{title}</p>
+                        <ReactMarkdown>
+                            {description}
+                        </ReactMarkdown>
+                    <hr></hr>
+                    <Tabs>
+                        <TabList>
+                        {buildTabs()}
+                        </TabList>
+                        {buildTabPanels()}
+                    </Tabs>
+                </div>
+            )
+        }
+    }
+
     const title = (scriptName ? scriptName : "Scripts");
     return(
-        <div id="main">
-            <div className="inner">
-                <h1>Scripts</h1>
+        <div>
+            <div id="scriptList">
                 {buildScriptList(scriptList)}
-                <p id="scriptTitle">{title}</p>
-                <p>        
-                    <ReactMarkdown>
-                        {description}
-                    </ReactMarkdown>
-                </p>
-                <hr></hr>
-                <Tabs>
-                    <TabList>
-                       {buildTabs()}
-                    </TabList>
-                    {buildTabPanels()}
-                </Tabs>
-                
             </div>
+            {scriptPreview()}
         </div>
     )
 }

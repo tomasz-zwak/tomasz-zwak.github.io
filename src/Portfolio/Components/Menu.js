@@ -43,26 +43,26 @@ function Menu(props) {
         ));
     }
 
-    return (
-        <nav id="menu">
-            <div className="inner">
-                <ul>
-                    <li>
-                        <Link to="/" onClick={toggleMenu}>Projects</Link>
-                    </li>
-                    <li>
-                        <Tree header={<Link to="/scripts"
-                            onClick={toggleMenu}> Scripts</Link>}>
-                            {buildTree(githubScriptList)}
-                        </Tree>
-                    </li>
-                    <li>
-                        <Link to="/hobbies" onClick={toggleMenu}>Hobbies & interests</Link>
-                    </li>
-                </ul>
-            </div>
-            <a className="close" onClick={toggleMenu}>Close</a>
-        </nav>
+    return ( null
+        // <nav id="menu">
+        //     <div className="inner">
+        //         <ul>
+        //             <li>
+        //                 <Link to="/" onClick={toggleMenu}>Projects</Link>
+        //             </li>
+        //             <li>
+        //                 <Tree header={<Link to="/scripts"
+        //                     onClick={toggleMenu}> Scripts</Link>}>
+        //                     {buildTree(githubScriptList)}
+        //                 </Tree>
+        //             </li>
+        //             <li>
+        //                 <Link to="/hobbies" onClick={toggleMenu}>Hobbies & interests</Link>
+        //             </li>
+        //         </ul>
+        //     </div>
+        //     <a className="close" onClick={toggleMenu}>Close</a>
+        // </nav>
     );
 }
 export default Menu;
