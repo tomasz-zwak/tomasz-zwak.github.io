@@ -3403,9 +3403,18 @@ input, select, textarea {
   /* Footer title flicker */
 
   .neonTextFlicker {
-	animation: flicker 1.5s infinite alternate;
 	color: #fff;
 	--neonColor: rgb(38, 61, 138);
+	text-shadow:
+		0 0 4px #fff,
+		0 0 11px #fff,
+		0 0 19px #fff,
+		0 0 40px var(--neonColor),
+		0 0 80px var(--neonColor),
+		0 0 90px var(--neonColor),
+		0 0 100px var(--neonColor),
+		0 0 150px var(--neonColor);
+	animation: flicker 1.5s infinite alternate;
   }
 
   .neonTextPulsate {
@@ -3421,21 +3430,11 @@ input, select, textarea {
   @keyframes flicker {
     
 	0%, 18%, 22%, 25%, 53%, 57%, 100% {
-  
-		text-shadow:
-		0 0 4px #fff,
-		0 0 11px #fff,
-		0 0 19px #fff,
-		0 0 40px var(--neonColor),
-		0 0 80px var(--neonColor),
-		0 0 90px var(--neonColor),
-		0 0 100px var(--neonColor),
-		0 0 150px var(--neonColor);
-	
+		opacity: 1;
 	}
 	
 	20%, 24%, 55% {        
-		text-shadow: none;
+		opacity: 0.6;
 	}    
   }
   
@@ -3472,6 +3471,7 @@ input, select, textarea {
 	  font-size: 2em;
 	  text-align: center;
 	  margin-top: 1em;
+	  margin-bottom: 0em!important;
   }
 
   #scriptList{
@@ -3491,7 +3491,7 @@ input, select, textarea {
   }
 
   #landing{
-	  height: 90vh;
+	  min-height: 90vh;
   }
 
   #landing > div{
@@ -3505,5 +3505,56 @@ input, select, textarea {
 
   .scroll-top-button{
 	  background-color: #000000;
+  }
+
+  .landing-container{
+	  display: flex;
+	  flex-direction: column;
+
+  }
+
+  .landing-container p {
+	  padding-top: 2em;
+	  max-width: 50%;
+	  margin-top: 0;
+	  padding-bottom: 0;
+  }
+
+  .landing-container > .row{
+	flex-direction: row;
+	padding-bottom: 1em;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-self: center;
+	align-items: center;
+  }
+
+  @media screen and (max-width: 736px) {
+
+	.landing-container p {
+		max-width: 100%;
+	}
+
+	.landing-container > .row > img{
+		min-width: 80%;
+	}
+
+
+	.landing-container > .row{
+		flex-direction: column;
+		max-width: 100%;
+
+	}
+  }
+
+  .landing-container > .row > img{
+	  max-width: 35%;
+	  opacity: 0.85;
+	  pointer-events: none;
+	  user-select: none;
+	  z-index: -2;
+  }
+  .row-reverse{
+	  flex-direction: row-reverse!important;
   }
   

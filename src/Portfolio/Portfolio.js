@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import './Portfolio.css';
 import './ministyles.css';
 import {Menu, Header, Footer} from "./Components"
-import {Projects, Scripts, Hobbies} from "./Pages"
+import {Projects, Scripts} from "./Pages"
 import ParticleBackground from "./Components/ParticleBackground";
 import {Link , animateScroll} from "react-scroll";
 import ButtonScrollTop from "./Components/ButtonScrollTop";
+import LandingContainer from "./Components/LandingContainer";
 
 function Portfolio() {
     const [isMenuOpen, openMenu] = useState(false);
@@ -26,7 +27,7 @@ function Portfolio() {
                     <div className="inner" id="landing">
                         <header>
                             <h1>Hello</h1>
-                            <p></p>
+                            <LandingContainer />
                         </header>   
                         <div>
                             <Link to="projects" className="button"
