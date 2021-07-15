@@ -103,7 +103,7 @@ function Scripts(props) {
         if(scriptName && description){
             return(
                 <div>
-                    <p id="scriptTitle">{title}</p>
+                    <p id="scriptTitle"></p>
                         <ReactMarkdown>
                             {description}
                         </ReactMarkdown>

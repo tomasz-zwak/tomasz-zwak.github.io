@@ -26,24 +26,13 @@ function Portfolio() {
                 <div id="main">
                     <div className="inner" id="landing">
                         <header>
-                            <h1>Hello</h1>
-                            <LandingContainer />
+                            <h1>Hello!</h1>
                         </header>   
-                        <div>
-                            <Link to="projects" className="button"
-                                smooth={true}
-                                offset={-20}
-                                duration={500}>Projects</Link>         
-                            <Link to="scripts" className="button"
-                                smooth={true}
-                                offset={-20}
-                                duration={500}>Scripts</Link>
-                        </div>
+                        <LandingContainer />
                     </div>
                     <div className="inner" id="projects">
                         <header>
                             <h1>My projects</h1>
-                            <p>Text</p>
                         </header>
                         <Projects />               
                     </div>

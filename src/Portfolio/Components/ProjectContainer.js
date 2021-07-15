@@ -42,7 +42,69 @@ function ProjectContainer(props) {
                 tech:["C#", "VSTO"],
                 description: <SafeAddress />
             }
-        }];
+        },
+        {
+            pics: [
+                "pdfadp1.png",
+                "pdfadp2.png"
+                ],
+            styleno: 2,
+            content:{
+                title: "PDFADP",
+                shortDesc: "Add description page to PDF.",
+                tech:["JavaFX", "Maven"],
+                description: <PDFADP />
+            }
+        },
+        {
+            pics: [
+                
+                ],
+            styleno: 2,
+            content:{
+                title: "Attachment Encrypt",
+                shortDesc: "Encrypt files and send pasword via SMS",
+                tech:["C#", "WinForms", "SMSAPI"],
+                description: <AttachmentEncrypt />
+            }
+        },
+        {
+            pics: [
+                "portfolio1.png"
+                ],
+            styleno: 2,
+            content:{
+                title: "Portfolio",
+                shortDesc: "My personal portfolio page",
+                tech:["React", "Github API"],
+                description: <Portfolio />
+            }
+        },
+        {
+            pics: [
+                
+                ],
+            styleno: 2,
+            content:{
+                title: "EMS",
+                shortDesc: "Employee Management System",
+                tech:["Java", "Spring Boot", "Hibernate", "React"],
+                description: <EMS />
+            }
+        },
+        {
+            pics: [
+                "aform1.png"
+                ],
+            styleno: 2,
+            content:{
+                title: "Applicaton Form",
+                shortDesc: "Simple Web form to collect customer complaints.",
+                tech:["React", "Google Web Apps", "Firebase"],
+                description: <ApplicationForm />
+            }
+        }
+    ];
         if (selected){
             return projects.filter((project, index) => index+1 === selected)
         }
@@ -50,7 +112,7 @@ function ProjectContainer(props) {
     }
 
     function ReturnButton(){
-        let classList = "icon solid fas fa-arrow-left return-arrow" 
+        let classList = "icon solid fas fa-arrow-left return-arrow button" 
         if(!selected){
             classList += " invisible"
         }
@@ -102,7 +164,6 @@ function Item(props) {
                 <li>Automaticaly generate user-specific email message or signature</li>
                 <li>Send user-specific emails</li>
             </ul>
-            <p>To learn more about this project visit it's Github page.</p>
             <p>
                 <a href="https://github.com/ttzv/ITem">
                     <button className="primary ">
@@ -141,7 +202,6 @@ function ItemOnRails(props) {
                 <li>Select multiple Users at once and automatically generate personalized template for each of them.</li>
                 <li>OAuth login and Gmail API integration (not available in previev version due to Google limitations)</li>
             </ul>
-            <p>To learn more about this project visit it's Github page.</p>
             <p>
                 <a href="https://github.com/ttzv/item_on_rails">
                     <button className="primary ">
@@ -169,7 +229,6 @@ function SafeAddress(props) {
                 <li>Show warning when your email contains external recipients</li>
                 <li>Configure safe domains</li>
             </ul>
-            <p>To learn more about this project visit it's Github page.</p>
             <p>
                 <a href="https://github.com/ttzv/SafeAddress">
                     <button className="primary ">
@@ -185,4 +244,50 @@ function SafeAddress(props) {
         </section>
     )
 }
+
+function PDFADP(props) {
+    return(
+        <section>
+            <p>
+                Modify pdF
+            </p>
+        </section>)
+}
+
+function AttachmentEncrypt(props) {
+    return(
+        <section>
+            <p>
+                create encrypted stuff
+            </p>
+        </section>)
+}
+
+function Portfolio(props) {
+    return(
+        <section>
+            <p>
+                Tris page
+            </p>
+        </section>)
+}
+
+function EMS(props) {
+    return(
+        <section>
+            <p>
+                employee management system
+            </p>
+        </section>)
+}
+
+function ApplicationForm(props) {
+    return(
+        <section>
+            <p>
+                serwis.atal.pl
+            </p>
+        </section>)
+}
+
 export default ProjectContainer;

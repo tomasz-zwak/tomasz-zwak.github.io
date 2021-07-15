@@ -1,4 +1,5 @@
 import {useSpring, animated, useChain} from 'react-spring';
+import {Link} from 'react-scroll';
 
 function LandingContainer(props){
     const anim = useSpring({
@@ -21,27 +22,37 @@ function LandingContainer(props){
             opacity: 0
         },
             transform: 'translate(0px)',
-            opacity: 1
+            opacity: 1,
+            config: {
+                mass: 10,
+                tension: 100,
+                friction: 20,
+                clamp: true
+            }
     })
 
     return(
         <div className="landing-container">
             <animated.div style={anim} className="row">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <img src="images\av.png"></img>
+                <p>
+                    My name is Tomasz Żwak and I'm an IT specialist with three years of experience. 
+                    <br></br>
+                    <br></br>
+                    Working in an IT dept. provides me with a great opportunity to use my coding skills in solving real world problems.
+                    <br></br>
+                    <br></br>
+                    Ckeck out my work in sections below!
+                </p>
             </animated.div>
-            <animated.div style={anim1} className="row row-reverse">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <img src="images\safeaddress1.png" width="200px" height="200px"></img>  
-            </animated.div>
-            <animated.div style={anim} className="row">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <img src="images\safeaddress1.png" width="200px" height="200px"></img>
-
-            </animated.div>
-            <animated.div style={anim1} className="row row-reverse">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <img src="images\safeaddress1.png" width="200px" height="200px"></img>
+            <animated.div style={anim1} className="row">
+                <Link to="projects" className="button"
+                    smooth={true}
+                    offset={-20}
+                    duration={500}>Projects</Link>         
+                <Link to="scripts" className="button"
+                    smooth={true}
+                    offset={-20}
+                    duration={500}>Scripts</Link>
             </animated.div>
         </div>
     )
