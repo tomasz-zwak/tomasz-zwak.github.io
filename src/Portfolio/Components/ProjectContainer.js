@@ -58,7 +58,8 @@ function ProjectContainer(props) {
         },
         {
             pics: [
-                
+                "ae1.png",
+                "ae2.png"
                 ],
             styleno: 2,
             content:{
@@ -229,18 +230,16 @@ function SafeAddress(props) {
                 <li>Show warning when your email contains external recipients</li>
                 <li>Configure safe domains</li>
             </ul>
-            <p>
-                <a href="https://github.com/ttzv/SafeAddress">
-                    <button className="primary ">
-                        <i className="icon brands fa-github"></i>
-                        Github
-                    </button>
+            <div className="row">
+                <a className="button" href="https://github.com/ttzv/SafeAddress">
+                    <i className="icon brands fa-github"></i>
+                    Github
                 </a>
-            </p>
-            <button className="primary">
-                <i className="fas fa-download"></i>
-                Download
-            </button>
+                <a className="button" href="https://github.com/ttzv/SafeAddress/releases/download/v0.24/SafeAddress.msi">
+                    <i className="fas fa-download"></i>
+                    Download
+                </a>
+            </div>
         </section>
     )
 }
@@ -249,7 +248,20 @@ function PDFADP(props) {
     return(
         <section>
             <p>
-                Modify pdF
+                A small JavaFX application that adds one additional page with your desired text to any selected PDF.
+                <br></br>
+                <br></br>
+                Built to speed up the process of adding descriptions to PDF invoices which are later inspected by accounting department. 
+                <div className="row">
+                    <a className="button" href="https://github.com/ttzv/PDFAddDescPage">
+                        <i className="icon brands fa-github"></i>
+                        Github
+                    </a>
+                    <a className="button" href="https://github.com/ttzv/PDFAddDescPage/releases/download/v0.1/pdfadp.zip">
+                        <i className="fas fa-download"></i>
+                        Download
+                    </a>
+                </div>
             </p>
         </section>)
 }
@@ -258,8 +270,22 @@ function AttachmentEncrypt(props) {
     return(
         <section>
             <p>
-                create encrypted stuff
+            Application that automates the process of generating password-protected archives and sending the password to the recipient.
+            <br></br>
+            Developed by me and my work colleague <a href="https://github.com/DominikBulandra">Dominik</a>
+            <br></br><br></br>
+            Another example of in-house solution that solves 
             </p>
+            <div className="row">
+                <a className="button" href="https://github.com/ttzv/AttachmentEncrypt">
+                    <i className="icon brands fa-github"></i>
+                    Github
+                </a>
+                <a className="button" href="https://github.com/ttzv/PDFAddDescPage/releases/download/v0.1/pdfadp.zip">
+                    <i className="fas fa-download"></i>
+                    Download
+                </a>
+            </div>
         </section>)
 }
 
@@ -267,8 +293,35 @@ function Portfolio(props) {
     return(
         <section>
             <p>
-                Tris page
+                The page you are currently on.<br></br><br></br>
+                I bootstrapped it with create-react-app and used several React libraries to make it look and work nicely.<br></br><br></br>
+                This page also uses Github API which queries my Scripts repository and creates dynamic content based on README.md and files in the repo so to include new Script entry on this page all I have to do is to create a new directory in repository and put some files inside.<br></br>
+                List of libraries used:
+                <ul>
+                    <li>
+                        <a href="https://react-spring.io/">React Spring</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/react-syntax-highlighter/react-syntax-highlighter">React Syntax Highlighter</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/matteobruni/tsparticles">React tsParticles</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/reactjs/react-tabs">react-tabs</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/remarkjs/react-markdown">react-markdown</a>
+                    </li>
+                </ul>
+
             </p>
+            <div className="row">
+                <a className="button" href="https://github.com/ttzv/AttachmentEncrypt">
+                    <i className="icon brands fa-github"></i>
+                    Github
+                </a>
+            </div>
         </section>)
 }
 
@@ -276,7 +329,24 @@ function EMS(props) {
     return(
         <section>
             <p>
-                employee management system
+                Web application that I'm building right now for my current employer.
+                <br></br>
+                Among many other things the main features that I want to implement are:
+                <ul>
+                    <li>Authorization and authentication using Google OAuth</li>
+                    <li>Holiday management system</li>
+                    <li>Admin interface that will allow to:
+                        <ul>
+                            <li>Create new user in AD</li>
+                            <li>Create G Suite account for said user</li>
+                            <li>Send welcome messages, generate signatures</li>
+                            <li>Integrate with as many internally used company software as possible</li>
+                        </ul>
+                    </li>
+                    <li>Reimplement AttachmentEncrypt as a web service</li>
+                    <li>Implement functionalities of ITem</li>
+                    <li>Provide internal API for variety of applications</li>
+                </ul>
             </p>
         </section>)
 }
@@ -285,7 +355,19 @@ function ApplicationForm(props) {
     return(
         <section>
             <p>
-                serwis.atal.pl
+                A web form that was built by me and my colleague from work <a href="https://github.com/DominikBulandra">Dominik</a><br></br>
+                It's purpose is to provide an easy way for customers to report a defect and request a service.
+                It also stores all submissions in a organized worksheet which improves the workflow.
+                <br></br>
+                <br></br>
+                Form submission sends data to Google Web App backend which then stores it in a worksheet.
+                <br></br>
+                <br></br>
+                Attached files are uploaded to Firebase storage and direct links are sent along with form data.
+                <br></br>
+                <br></br>
+                Using React for such a simple web form might've been an overkill but it allowed us to learn more about bootstrapping the project with create-react-app, handling forms, making API calls and building the project to host it on Apache server.<br></br>
+                By working on it together with my colleague we've also learned how to collaborate on a project using git and Github. 
             </p>
         </section>)
 }
