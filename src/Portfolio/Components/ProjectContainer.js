@@ -15,7 +15,7 @@ function ProjectContainer(props) {
             content:{
                 title: "ITEM",
                 shortDesc: "Automatic template generation and service integration.",
-                tech:["Java", "Maven", "Postgres"],
+                tech:["JavaFX", "Maven", "Hibernate", "Postgres", "H2", "JPMS"],
                 description: <Item />
             }
         },
@@ -52,7 +52,7 @@ function ProjectContainer(props) {
             content:{
                 title: "PDFADP",
                 shortDesc: "Add description page to PDF.",
-                tech:["JavaFX", "Maven"],
+                tech:["JavaFX", "Maven", "JPMS"],
                 description: <PDFADP />
             }
         },
@@ -165,18 +165,17 @@ function Item(props) {
                 <li>Automaticaly generate user-specific email message or signature</li>
                 <li>Send user-specific emails</li>
             </ul>
-            <p>
-                <a href="https://github.com/ttzv/ITem">
-                    <button className="primary ">
-                        <i className="icon brands fa-github"></i>
-                        Github
-                    </button>
+            <br></br>
+            <div className="project-buttons-row">
+                <a className="button" href="https://github.com/ttzv/ITem">
+                    <i className="icon brands fa-github"></i>
+                    Github
                 </a>
-            </p>
-            <button className="primary">
-                <i className="fas fa-download"></i>
-                Download
-            </button>
+                <a className="button" href="https://github.com/ttzv/ITem/releases/download/1.0/ITem.7z">
+                    <i className="fas fa-download"></i>
+                    Download
+                </a>
+            </div>
         </section>
     )
 }
@@ -203,18 +202,21 @@ function ItemOnRails(props) {
                 <li>Select multiple Users at once and automatically generate personalized template for each of them.</li>
                 <li>OAuth login and Gmail API integration (not available in previev version due to Google limitations)</li>
             </ul>
-            <p>
+            <br></br>
+            <div className="project-buttons-row">
                 <a href="https://github.com/ttzv/item_on_rails">
                     <button className="primary ">
                         <i className="icon brands fa-github"></i>
                         Github
                     </button>
                 </a>
-            </p>
-            <button className="primary">
-                <i className="fas fa-download"></i>
-                Live preview
-            </button>
+                <a href="https://item-on-rails.herokuapp.com/">
+                    <button className="primary">
+                        <i class="fas fa-globe"></i>
+                        Live preview
+                    </button>
+                </a>
+            </div>
         </section>
     )
 }
@@ -230,7 +232,8 @@ function SafeAddress(props) {
                 <li>Show warning when your email contains external recipients</li>
                 <li>Configure safe domains</li>
             </ul>
-            <div className="row">
+            <br></br>
+            <div className="project-buttons-row">
                 <a className="button" href="https://github.com/ttzv/SafeAddress">
                     <i className="icon brands fa-github"></i>
                     Github
@@ -252,6 +255,7 @@ function PDFADP(props) {
                 <br></br>
                 <br></br>
                 Built to speed up the process of adding descriptions to PDF invoices which are later inspected by accounting department. 
+            </p>
                 <div className="row">
                     <a className="button" href="https://github.com/ttzv/PDFAddDescPage">
                         <i className="icon brands fa-github"></i>
@@ -262,7 +266,7 @@ function PDFADP(props) {
                         Download
                     </a>
                 </div>
-            </p>
+            
         </section>)
 }
 
@@ -274,9 +278,9 @@ function AttachmentEncrypt(props) {
             <br></br>
             Developed by me and my work colleague <a href="https://github.com/DominikBulandra">Dominik</a>
             <br></br><br></br>
-            Another example of in-house solution that solves 
+            This is an in-house solution to satisfy a demand to increase security of attachments sent to customers.
             </p>
-            <div className="row">
+            <div className="project-buttons-row">
                 <a className="button" href="https://github.com/ttzv/AttachmentEncrypt">
                     <i className="icon brands fa-github"></i>
                     Github
@@ -295,7 +299,8 @@ function Portfolio(props) {
             <p>
                 The page you are currently on.<br></br><br></br>
                 I bootstrapped it with create-react-app and used several React libraries to make it look and work nicely.<br></br><br></br>
-                This page also uses Github API which queries my Scripts repository and creates dynamic content based on README.md and files in the repo so to include new Script entry on this page all I have to do is to create a new directory in repository and put some files inside.<br></br>
+                This page also uses Github API which queries my Scripts repository and creates dynamic content based on README.md and files in the repo.  
+                Any new script pushed to github repository will be immediately visible on my website.<br></br>
                 List of libraries used:
                 <ul>
                     <li>
@@ -317,7 +322,7 @@ function Portfolio(props) {
 
             </p>
             <div className="row">
-                <a className="button" href="https://github.com/ttzv/AttachmentEncrypt">
+                <a className="button" href="https://github.com/tomasz-zwak/portfolio">
                     <i className="icon brands fa-github"></i>
                     Github
                 </a>
@@ -333,7 +338,6 @@ function EMS(props) {
                 <br></br>
                 Among many other things the main features that I want to implement are:
                 <ul>
-                    <li>Authorization and authentication using Google OAuth</li>
                     <li>Holiday management system</li>
                     <li>Admin interface that will allow to:
                         <ul>
@@ -343,6 +347,7 @@ function EMS(props) {
                             <li>Integrate with as many internally used company software as possible</li>
                         </ul>
                     </li>
+                    <li>Authorization and authentication using Google OAuth</li>
                     <li>Reimplement AttachmentEncrypt as a web service</li>
                     <li>Implement functionalities of ITem</li>
                     <li>Provide internal API for variety of applications</li>
@@ -355,7 +360,7 @@ function ApplicationForm(props) {
     return(
         <section>
             <p>
-                A web form that was built by me and my colleague from work <a href="https://github.com/DominikBulandra">Dominik</a><br></br>
+                A web form that was built by me and my colleague <a href="https://github.com/DominikBulandra">Dominik</a><br></br>
                 It's purpose is to provide an easy way for customers to report a defect and request a service.
                 It also stores all submissions in a organized worksheet which improves the workflow.
                 <br></br>
@@ -368,7 +373,14 @@ function ApplicationForm(props) {
                 <br></br>
                 Using React for such a simple web form might've been an overkill but it allowed us to learn more about bootstrapping the project with create-react-app, handling forms, making API calls and building the project to host it on Apache server.<br></br>
                 By working on it together with my colleague we've also learned how to collaborate on a project using git and Github. 
+
             </p>
+                <div className="project-buttons-row">
+                    <a className="button" href="https://www.serwis.atal.pl">
+                        <i class="fas fa-globe"></i>
+                        Live
+                    </a>
+                </div>
         </section>)
 }
 
