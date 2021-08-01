@@ -1,19 +1,65 @@
+import { useFormik } from 'formik';
+
 function Footer(props) {
+
+    const formik = useFormik({
+        initialValues: {
+            name: '',
+            email: '',
+            message: '',
+        },
+        onSubmit: values => {
+
+            alert(generateUrl(values));
+            fetch(generateUrl(values),{
+                method: "GET",
+                mode: "no-cors"
+            }).then(console.log);
+            
+        },
+    });
+
+    function generateUrl(params) {
+        let baseScriptURL = 'https://script.google.com/macros/s/AKfycbwVznoQY4PHjW7VV2sPjg7dJcoveFEPv7kujRcbuBcIzCKQZ505o0HKSUxutXtaqWW_sA/exec?';
+        let paramsString = Object.keys(params).map(k => `${k}=${params[k]}`).join("&");
+        return `${baseScriptURL}${paramsString}`;
+      }
+
     return (
         <footer id="footer">
         <div className="inner">
             <section>
                 <h2 className="neonTextFlicker">Get in touch</h2>
-                <form method="post" action="#">
+                <form onSubmit={formik.handleSubmit}>
                     <div className="fields">
                         <div className="field half">
-                            <input type="text" name="name" id="name" placeholder="Name" />
+                            <input 
+                                type="text" 
+                                name="name" 
+                                id="name" 
+                                placeholder="Name" 
+                                onChange={formik.handleChange} 
+                                value={formik.values.name}
+                                required/>
                         </div>
                         <div className="field half">
-                            <input type="email" name="email" id="email" placeholder="Email" />
+                            <input 
+                                type="email" 
+                                name="email" 
+                                id="email" 
+                                placeholder="Email" 
+                                onChange={formik.handleChange}
+                                value={formik.values.email}
+                                required/>
                         </div>
                         <div className="field">
-                            <textarea name="message" id="message" placeholder="Message"></textarea>
+                            <textarea 
+                                name="message" 
+                                id="message" 
+                                placeholder="Message" 
+                                onChange={formik.handleChange}
+                                value={formik.values.message}
+                                required></textarea>
                         </div>
                     </div>
                     <ul className="actions">
