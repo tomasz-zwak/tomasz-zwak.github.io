@@ -1,21 +1,25 @@
 import { useFormik } from 'formik';
+import { useState } from 'react';
 
 function Footer(props) {
-
+    const [submitting, setSubmitting] = useState(false);
     const formik = useFormik({
         initialValues: {
             name: '',
             email: '',
             message: '',
         },
-        onSubmit: values => {
-
-            alert(generateUrl(values));
-            fetch(generateUrl(values),{
-                method: "GET",
-                mode: "no-cors"
-            }).then(console.log);
-            
+        onSubmit: (values, {resetForm}) => {
+            setSubmitting(true);
+            setTimeout(() => {
+                fetch(generateUrl(values),{
+                    method: "GET",
+                    mode: "no-cors"
+                }).then( () => {
+                    setSubmitting(false);
+                    resetForm({values: ''});
+                })
+            }, 3000);           
         },
     });
 
@@ -63,7 +67,7 @@ function Footer(props) {
                         </div>
                     </div>
                     <ul className="actions">
-                        <li><input type="submit" value="Send" className="primary" /></li>
+                        <li><input type="submit" value="Send" className="primary" disabled={submitting ? "true" : ""}/></li>
                     </ul>
                 </form>
             </section>
