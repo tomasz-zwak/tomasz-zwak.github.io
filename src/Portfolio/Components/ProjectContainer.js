@@ -1,5 +1,6 @@
 import ProjectEntry from "./ProjectEntry";
 import { useState } from "react";
+import { scroller } from "react-scroll";
 function ProjectContainer(props) {
     const [selected, setSelected] = useState(null);
 
@@ -83,7 +84,7 @@ function ProjectContainer(props) {
         },
         {
             pics: [
-                
+                "ems1.png"
                 ],
             styleno: 2,
             content:{
@@ -123,6 +124,10 @@ function ProjectContainer(props) {
     function select(index){
         if(!selected){
             setSelected(index)
+            scroller.scrollTo("projects",{ smooth: true,
+            duration: 500,
+            offset: -20
+            })
         }
     }
 
@@ -256,16 +261,16 @@ function PDFADP(props) {
                 <br></br>
                 Built to speed up the process of adding descriptions to PDF invoices which are later inspected by accounting department. 
             </p>
-                <div className="row">
-                    <a className="button" href="https://github.com/ttzv/PDFAddDescPage">
-                        <i className="icon brands fa-github"></i>
-                        Github
-                    </a>
-                    <a className="button" href="https://github.com/ttzv/PDFAddDescPage/releases/download/v0.1/pdfadp.zip">
-                        <i className="fas fa-download"></i>
-                        Download
-                    </a>
-                </div>
+            <div className="project-buttons-row">
+                <a className="button" href="https://github.com/ttzv/PDFAddDescPage">
+                    <i className="icon brands fa-github"></i>
+                    Github
+                </a>
+                <a className="button" href="https://github.com/ttzv/PDFAddDescPage/releases/download/v0.1/pdfadp.zip">
+                    <i className="fas fa-download"></i>
+                    Download
+                </a>
+            </div>
             
         </section>)
 }
@@ -274,11 +279,11 @@ function AttachmentEncrypt(props) {
     return(
         <section>
             <p>
-            Application that automates the process of generating password-protected archives and sending the password to the recipient.
-            <br></br>
-            Developed by me and my work colleague <a href="https://github.com/DominikBulandra">Dominik</a>
-            <br></br><br></br>
-            This is an in-house solution to satisfy a demand to increase security of attachments sent to customers.
+                Application that automates the process of generating password-protected archives and sending the password to the recipient.
+                <br></br>
+                Developed by me and my work colleague <a href="https://github.com/DominikBulandra">Dominik</a>
+                <br></br><br></br>
+                This is an in-house solution to satisfy a demand to increase security of attachments sent to customers.
             </p>
             <div className="project-buttons-row">
                 <a className="button" href="https://github.com/ttzv/AttachmentEncrypt">
@@ -302,25 +307,28 @@ function Portfolio(props) {
                 This page also uses Github API which queries my Scripts repository and creates dynamic content based on README.md and files in the repo.  
                 Any new script pushed to github repository will be immediately visible on my website.<br></br>
                 List of libraries used:
-                <ul>
-                    <li>
-                        <a href="https://react-spring.io/">React Spring</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/react-syntax-highlighter/react-syntax-highlighter">React Syntax Highlighter</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/matteobruni/tsparticles">React tsParticles</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/reactjs/react-tabs">react-tabs</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/remarkjs/react-markdown">react-markdown</a>
-                    </li>
-                </ul>
-
             </p>
+            <ul>
+                <li>
+                    <a href="https://react-spring.io/">React Spring</a>
+                </li>
+                <li>
+                    <a href="https://github.com/react-syntax-highlighter/react-syntax-highlighter">React Syntax Highlighter</a>
+                </li>
+                <li>
+                    <a href="https://github.com/matteobruni/tsparticles">React tsParticles</a>
+                </li>
+                <li>
+                    <a href="https://github.com/reactjs/react-tabs">react-tabs</a>
+                </li>
+                <li>
+                    <a href="https://github.com/remarkjs/react-markdown">react-markdown</a>
+                </li>
+                <li>
+                    <a href="https://formik.org/">Formik</a>
+                </li>
+            </ul>
+            <br></br>
             <div className="row">
                 <a className="button" href="https://github.com/tomasz-zwak/portfolio">
                     <i className="icon brands fa-github"></i>
@@ -335,24 +343,24 @@ function EMS(props) {
         <section>
             <p>
                 Web application that I'm building right now for my current employer.
-                <br></br>
-                Among many other things the main features that I want to implement are:
-                <ul>
-                    <li>Holiday management system</li>
-                    <li>Admin interface that will allow to:
-                        <ul>
-                            <li>Create new user in AD</li>
-                            <li>Create G Suite account for said user</li>
-                            <li>Send welcome messages, generate signatures</li>
-                            <li>Integrate with as many internally used company software as possible</li>
-                        </ul>
-                    </li>
-                    <li>Authorization and authentication using Google OAuth</li>
-                    <li>Reimplement AttachmentEncrypt as a web service</li>
-                    <li>Implement functionalities of ITem</li>
-                    <li>Provide internal API for variety of applications</li>
-                </ul>
             </p>
+            <br></br>
+            Among many other things the main features that I want to implement are:
+            <ul>
+                <li>Holiday management system</li>
+                <li>Admin interface that will allow to:
+                    <ul>
+                        <li>Create new user in AD</li>
+                        <li>Create G Suite account for said user</li>
+                        <li>Send welcome messages, generate signatures</li>
+                        <li>Integrate with as many internally used company software as possible</li>
+                    </ul>
+                </li>
+                <li>Authorization and authentication using Google OAuth</li>
+                <li>Reimplement AttachmentEncrypt as a web service</li>
+                <li>Implement functionalities of ITem</li>
+                <li>Provide internal API for variety of applications</li>
+            </ul>
         </section>)
 }
 
@@ -361,7 +369,7 @@ function ApplicationForm(props) {
         <section>
             <p>
                 A web form that was built by me and my colleague <a href="https://github.com/DominikBulandra">Dominik</a><br></br>
-                It's purpose is to provide an easy way for customers to report a defect and request a service.
+                It's purpose is to provide an easy way for customers to report an issue and request a service.
                 It also stores all submissions in a organized worksheet which improves the workflow.
                 <br></br>
                 <br></br>
@@ -373,10 +381,9 @@ function ApplicationForm(props) {
                 <br></br>
                 Using React for such a simple web form might've been an overkill but it allowed us to learn more about bootstrapping the project with create-react-app, handling forms, making API calls and building the project to host it on Apache server.<br></br>
                 By working on it together with my colleague we've also learned how to collaborate on a project using git and Github. 
-
             </p>
                 <div className="project-buttons-row">
-                    <a className="button" href="https://www.serwis.atal.pl">
+                    <a className="button" href="https://serwis.atal.pl/">
                         <i class="fas fa-globe"></i>
                         Live
                     </a>
