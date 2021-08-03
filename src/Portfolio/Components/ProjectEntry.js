@@ -14,7 +14,7 @@ function ProjectEntry(props){
     function Tile(){
         return (<article onClick={onClick}>
             <span className="image">
-                <img src={`images/${pics[0]}`} alt="" />
+                <img src={`images/${pics[0].toLowerCase()}`} alt="" />
             </span>
             <a>
                 <h2>{title}</h2>
