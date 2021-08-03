@@ -3,8 +3,8 @@ import './Portfolio.css';
 import './ministyles.css';
 import {Menu, Header, Footer} from "./Components"
 import {Projects, Scripts} from "./Pages"
+import { Element } from "react-scroll";
 import ParticleBackground from "./Components/ParticleBackground";
-import {Link , animateScroll} from "react-scroll";
 import ButtonScrollTop from "./Components/ButtonScrollTop";
 import LandingContainer from "./Components/LandingContainer";
 
@@ -15,7 +15,6 @@ function Portfolio() {
         openMenu(!isMenuOpen);
         console.log(!isMenuOpen);
     }
-
     return (
         <div>
             <ParticleBackground />
@@ -30,7 +29,7 @@ function Portfolio() {
                         </header>   
                         <LandingContainer />
                     </div>
-                    <div className="inner" id="projects">
+                    <div className="inner" id="projects" name="projects">
                         <header>
                             <h1>My projects</h1>
                         </header>
