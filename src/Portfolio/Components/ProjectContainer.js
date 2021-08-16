@@ -7,6 +7,18 @@ function ProjectContainer(props) {
     function getProjects(params) {
         let projects = [{
             pics: [
+                "ecommerce1.png",
+                "ecommerce2.png"],
+            styleno: 1,
+            content:{
+                title: "Ecommerce Demo",
+                shortDesc: "Demonstrative ecommerce website built with Angular and Spring Boot.",
+                tech:["Angular", "Spring Boot", "Mysql", "Heroku", "Github Pages"],
+                description: <EcommerceDemo />
+            }
+        },
+        {
+            pics: [
                 "item1.png",
                 "item2.png",
                 "item3.png",
@@ -152,6 +164,28 @@ function ProjectContainer(props) {
     )
 }
 
+function EcommerceDemo(props) {
+    return(
+        <section>
+           <div className="project-buttons-row">
+                <a href="https://github.com/ttzv-training-repos/ttzv-training-repos.github.io">
+                    <button className="primary ">
+                        <i className="icon brands fa-github"></i>
+                        Github
+                    </button>
+                </a>
+                <a href="https://ttzv-training-repos.github.io/">
+                    <button className="primary">
+                        <i class="fas fa-globe"></i>
+                        Live preview
+                    </button>
+                </a>
+            </div>
+        </section>
+    )
+}
+
+
 function Item(props) {
     return(
         <section>
@@ -281,7 +315,7 @@ function AttachmentEncrypt(props) {
             <p>
                 Application that automates the process of generating password-protected archives and sending the password to the recipient.
                 <br></br>
-                Developed by me and my work colleague <a href="https://github.com/DominikBulandra">Dominik</a>
+                Developed by me and my colleague <a href="https://github.com/DominikBulandra">Dominik</a>
                 <br></br><br></br>
                 This is an in-house solution to satisfy a demand to increase security of attachments sent to customers.
             </p>
@@ -290,7 +324,7 @@ function AttachmentEncrypt(props) {
                     <i className="icon brands fa-github"></i>
                     Github
                 </a>
-                <a className="button" href="https://github.com/ttzv/PDFAddDescPage/releases/download/v0.1/pdfadp.zip">
+                <a className="button" href="https://github.com/ttzv/AttachmentEncrypt/releases/download/v1.11/AttachmentEncrypt1.11.zip">
                     <i className="fas fa-download"></i>
                     Download
                 </a>
