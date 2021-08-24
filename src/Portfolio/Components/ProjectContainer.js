@@ -7,6 +7,19 @@ function ProjectContainer(props) {
     function getProjects(params) {
         let projects = [{
             pics: [
+                "tmdbs1.png",
+                "tmdbs2.png",
+                "tmdbs3.png"],
+            styleno: 1,
+            content:{
+                title: "TMDbSearch",
+                shortDesc: "Angular application that uses TMDb API to search for movies.",
+                tech:["Angular", "TMDb API"],
+                description: <TMDbSearch />
+            }
+        },
+        {
+            pics: [
                 "ecommerce1.png",
                 "ecommerce2.png"],
             styleno: 1,
@@ -94,18 +107,18 @@ function ProjectContainer(props) {
                 description: <Portfolio />
             }
         },
-        {
-            pics: [
-                "ems1.png"
-                ],
-            styleno: 2,
-            content:{
-                title: "EMS",
-                shortDesc: "Employee Management System",
-                tech:["Java", "Spring Boot", "Hibernate", "React"],
-                description: <EMS />
-            }
-        },
+        // {
+        //     pics: [
+        //         "ems1.png"
+        //         ],
+        //     styleno: 2,
+        //     content:{
+        //         title: "EMS",
+        //         shortDesc: "Employee Management System",
+        //         tech:["Java", "Spring Boot", "Hibernate", "React"],
+        //         description: <EMS />
+        //     }
+        // },
         {
             pics: [
                 "aform1.png"
@@ -164,9 +177,56 @@ function ProjectContainer(props) {
     )
 }
 
+function TMDbSearch(props){
+    return(
+        <section>
+            <p>
+                A simple Angular application that utilizes The Movie Database API. <br></br>
+                Currently only searching for movies is supported.
+                <br></br><br></br>
+                <h3>Features</h3>
+                <ul>
+                    <li>Search for movies in The Movie Database</li>
+                    <li>Several filtering options</li>
+                </ul>
+                <br></br>
+            </p>
+           <div className="project-buttons-row">
+                <a href="https://github.com/ttzv/TMDbSearch">
+                    <button className="primary ">
+                        <i className="icon brands fa-github"></i>
+                        Github
+                    </button>
+                </a>
+                <a href="https://ttzv.github.io/TMDbSearch">
+                    <button className="primary">
+                        <i class="fas fa-globe"></i>
+                        Live preview
+                    </button>
+                </a>
+            </div>
+        </section>
+    )
+}
+
 function EcommerceDemo(props) {
     return(
         <section>
+            <p>
+                Demonstrative e-commerce website.
+                <br></br><br></br>
+                The main purpose of this project was to learn the ropes of fullstack development using Angular and Spring Boot.
+                <br></br><br></br>
+                <h3>Features</h3>
+                <ul>
+                    <li>Listing products by category, searching and pagination</li>
+                    <li>Fully functioning cart with order preview</li>
+                    <li>Authorization and authentication using OktaAuth</li>
+                </ul>
+                <br></br>
+                Please note that initial load may take up to 60 seconds because of how Heroku dynos work. 
+                Products will load as soon as Spring Boot backend is available.
+            </p>
            <div className="project-buttons-row">
                 <a href="https://github.com/ttzv-training-repos/ttzv-training-repos.github.io">
                     <button className="primary ">
@@ -259,7 +319,6 @@ function ItemOnRails(props) {
         </section>
     )
 }
-
 function SafeAddress(props) {
     return(
         <section>
