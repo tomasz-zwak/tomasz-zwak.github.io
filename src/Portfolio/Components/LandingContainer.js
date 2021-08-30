@@ -40,7 +40,7 @@ function LandingContainer(props){
                     <br></br>
                     Working in an IT dept. provides me with a great opportunity to use my coding skills in solving real world problems.
                     <br></br>
-                    I prefer to work with Java, but I'm also familiar with C#, Javascript and React.
+                    I prefer to work with Java, but I'm also familiar with C# and Javascript.
                     <br></br>
                     <br></br>
                     Ckeck out my work in sections below!

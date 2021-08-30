@@ -107,18 +107,18 @@ function ProjectContainer(props) {
                 description: <Portfolio />
             }
         },
-        // {
-        //     pics: [
-        //         "ems1.png"
-        //         ],
-        //     styleno: 2,
-        //     content:{
-        //         title: "EMS",
-        //         shortDesc: "Employee Management System",
-        //         tech:["Java", "Spring Boot", "Hibernate", "React"],
-        //         description: <EMS />
-        //     }
-        // },
+        {
+            pics: [
+                "ems1.png"
+                ],
+            styleno: 2,
+            content:{
+                title: "EMS",
+                shortDesc: "Employee Management System",
+                tech:["Java", "Spring Boot", "Hibernate", "React/Angular"],
+                description: <EMS />
+            }
+        },
         {
             pics: [
                 "aform1.png"
@@ -231,7 +231,13 @@ function EcommerceDemo(props) {
                 <a href="https://github.com/ttzv-training-repos/ttzv-training-repos.github.io">
                     <button className="primary ">
                         <i className="icon brands fa-github"></i>
-                        Github
+                        Github - Frontend
+                    </button>
+                </a>
+                <a href="https://github.com/ttzv-training-repos/ecommerce-demo-backend">
+                    <button className="primary ">
+                        <i className="icon brands fa-github"></i>
+                        Github - Backend
                     </button>
                 </a>
                 <a href="https://ttzv-training-repos.github.io/">
@@ -435,7 +441,7 @@ function EMS(props) {
     return(
         <section>
             <p>
-                Web application that I'm building right now for my current employer.
+                Web application that I'm planning to build in the near future.
             </p>
             <br></br>
             Among many other things the main features that I want to implement are:
