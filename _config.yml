@@ -1,0 +1,31 @@
+title: Tomasz Żwak
+description: Software developer
+baseurl: ""
+url: https://piazzai.github.io/cvless
+
+theme: cvless
+
+# site settings
+taglong: Software developer
+tagshort: Jekyll theme
+
+# author settings
+author:
+  name: Tomasz Żwak
+  email: tomasz.zwak@gmail.com
+  location: Bielsko-Biała, Poland
+photo: assets/files/photo.png
+address: Bielsko-Biała, Poland
+homePageUrl: https://tomasz-zwak.github.io
+
+# social media links
+social:
+  github: tomasz-zwak
+  linkedin: tomasz-zwak
+
+# build settings
+permalink: pretty
+exclude:
+  - docker-compose.yml
+  - LICENSE
+  - README.md
