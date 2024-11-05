@@ -1,13 +1,12 @@
 title: Tomasz Żwak
 description: Software developer
 baseurl: ""
-url: https://piazzai.github.io/cvless
 
 theme: cvless
 
 # site settings
 taglong: Software developer
-tagshort: Jekyll theme
+tagshort: Software developer
 
 # author settings
 author:
